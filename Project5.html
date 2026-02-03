@@ -1,0 +1,130 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You ❤️</title><style>
+    :root {
+        --bg-color: #fce4ec;
+        --card-color: #ffffff;
+        --accent-color: #ff4081;
+        --text-color: #4a148c;
+    }
+
+    body {
+        background-color: var(--bg-color);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background: var(--card-color);
+        padding: 2rem;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        text-align: center;
+        max-width: 400px;
+        width: 90%;
+    }
+
+    img {
+        width: 160px;
+        border-radius: 10px;
+        margin-bottom: 1rem;
+    }
+
+    h1 { color: var(--text-color); font-size: 1.5rem; }
+    p { color: #666; font-size: 0.9rem; margin-bottom: 2rem; }
+
+    .btn-group {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        position: relative;
+        height: 50px;
+    }
+
+    button {
+        padding: 10px 25px;
+        border: none;
+        border-radius: 25px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    #yesBtn { background-color: #4caf50; color: white; }
+
+    #noBtn {
+        background-color: #f44336;
+        color: white;
+    }
+
+    .hidden { display: none; }
+
+    .celebrate {
+        animation: heartBeat 1s infinite;
+    }
+
+    @keyframes heartBeat {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+</style>
+
+</head><body><div class="container" id="mainCard"><div id="proposalContent">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5XTCMPSRHnhK-oGPnuCe4Ymd2pnHEdIMHrFGfi6CpMMpat6DS8lAuF9w&s=10" alt="Cute">
+
+    <h1>Will you be mine Pari? 🥺💘</h1>
+    <p>Life is an incredible journey, and I want to spend every single second of it with you.</p>
+
+    <div class="btn-group">
+        <button id="yesBtn" onclick="showLove()">YES</button>
+        <button id="noBtn" onclick="handleNoClick()">NO</button>
+    </div>
+</div>
+
+<div id="successContent" class="hidden">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDzgjAY0lcMZs1aa3wzhePkDKcIE2MF9Ijsi-uinYXYg&s" class="celebrate">
+
+    <h1>Happy Valentine's Day Baby! 💍</h1>
+    <p>I love you more than words can say.</p>
+
+    <button onclick="location.reload()">Back</button>
+</div>
+
+</div><script>
+let noCount = 0;
+
+function moveButton() {
+    const btn = document.getElementById('noBtn');
+
+    const x = Math.random() * (window.innerWidth - btn.offsetWidth - 20);
+    const y = Math.random() * (window.innerHeight - btn.offsetHeight - 20);
+
+    btn.style.position = 'fixed';
+    btn.style.left = x + 'px';
+    btn.style.top = y + 'px';
+}
+
+function handleNoClick() {
+    noCount++;
+
+    if (noCount % 2 === 1) {
+        alert("Don't You Love Me? 🥺");
+    } else {
+        alert("You Can't Escape My Love! 😡");
+    }
+
+    moveButton();
+}
+
+function showLove() {
+    document.getElementById('proposalContent').classList.add('hidden');
+    document.getElementById('successContent').classList.remove('hidden');
+}
+</script></body>
+</html>
